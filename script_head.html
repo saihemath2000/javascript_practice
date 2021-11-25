@@ -1,0 +1,103 @@
+<html>
+	<head>
+		<title>Javascript One</title>
+		<!--<script type="text/javascript" src="script_head.js"></script>-->
+		<script language="Javascript" type="text/Javascript">
+			var name="yoyo"
+			var a=new Object();
+			a.value="hello";
+			function hello(){      //If you want to have a script run on some event, such as when a user clicks somewhere, then you will   place that script in the head as follows ..... If you need a script to run as the page loads so that the script generates content in the page, then the script goes in the <body> portion of the document.
+				alert("yoyo")
+			}
+			/*for(i in name){
+				document.write(name[i]+"</br>")
+			}*/
+			function getconfirmation(){
+				var x=confirm("do you want to continue?")
+				if(x==true){
+					document.write("user wants to conitnue")
+					return true
+				}else{
+					document.write("not at all")
+					return false
+				}
+			}
+			function getValue(){
+				var y = prompt("name is:","ur name here")
+				document.write("u entered name as"+y)
+			}
+			function over(){
+				document.write("mouse over")
+			}
+			function out(){
+				document.write("mouse out")
+			}
+			function redirect(){
+				window.location="https://aprofessorlife.com"
+			}
+			//setTimeout('redirect()',5000)
+			//creating our own object
+			function addprice(amount){
+				/*with(this){
+					price=amount
+				}*/
+				this.price=amount
+			}
+			function book(param1,param2){
+				this.author=param1
+				this.lib=param2
+				this.addprice=addprice //add price attribute by assigning the method
+			}
+			/*function exceptionhandling(){
+				var a=20;b=0;
+				try{
+					if(b==0)
+						throw("divide by zero error")
+					else{
+						var c=a/b;
+						document.write("value of c is: "+c+"</br>")
+					}
+				}
+				catch(e){
+					alert("error:"+e)
+				}
+			}*/
+			window.onerror = function(msg,url,line){
+				alert("message: "+msg)
+				alert("url: "+url)
+				alert("line no: "+line)
+			}
+		</script>
+	</head>
+	<body>
+		<script>
+			//code of object1 
+			var object1 = new book("hi","here");
+			object1.addprice(100);
+			document.write(document.title+"</br>")
+			document.write("value of a is "+a.value+"</br>");
+			document.write("author of book is"+object1.author+"</br>")
+			document.write("lib of book is"+object1.lib+"</br>")
+			document.write("price of book is"+object1.price+"</br>")
+            
+            //default Array object
+            var object2 = new Array("sai","hemanth","gummaraju","kumar")
+            document.write(object2.toString()+"</br>")
+            
+            //default Date object
+            var object3 = new Date();
+            document.write(object3.getDate()+"</br>") 
+
+		</script>
+		<input type="button" name="" onclick="hello()" value="say hello"/></br>
+		<input type="button" name="" onclick="redirect()" value="button"/></br>
+		<input type="button" name="" onclick="getconfirmation()" value="confirm"/></br>
+		<input type="button" name="" onclick="getValue()" value="value"/></br>
+		<input type="button" name="" onclick="window.print()" value="print"/></br>
+		<input type="button" name="" onclick="exceptionhandling()" value="exceptioncatch"></br>
+		<!--<div onmouseover="over()" onmouseout="out()">
+			this is in side yoyo
+		</div>-->
+		<a href="javascript:void(alert('warning???'))"> click me</a>
+	</body>
+</html>
